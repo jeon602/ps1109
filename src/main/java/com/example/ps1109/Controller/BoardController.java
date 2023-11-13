@@ -1,7 +1,9 @@
 package com.example.ps1109.Controller;
 
-import com.example.ps1109.Domain.Board;
+
 import com.example.ps1109.Service.BS;
+import com.example.ps1109.Domain.Board;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,18 +40,5 @@ public class BoardController {
         return service.get(id);
     }
 
-    @DeleteMapping("remove/{id}")
-    public ResponseEntity remove(@PathVariable Integer id) {
-        if (service.remove(id)) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.internalServerError().build();
-        }
-    }
+
 }
-
-
-
-
-
-
